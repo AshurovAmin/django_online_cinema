@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet">
+
+
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Dmitry Volkov">
+	<title>Online Cinema</title>
+
+</head>
+<body class="body">
+
+	<header class="header">
+		<div class="header__wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header__content">
+							<!-- header logo -->
+							<a href="{% url 'movie_list' %}" class="header__logo" style="background-color: transparent">
+								<img src="{% static 'img/logo3.svg' %}" alt="" style="width: 32%; height: auto; ">
+							</a>
+	                          <li class="header__nav-item">
+									<a class="header__nav-link" href="{% url 'movie_list' %}" role="button"  aria-haspopup="true" aria-expanded="false">Главная</a>
+                                <div class="header__auth">
+								{% if not user.is_authenticated %}
+									<a href="{% url 'login' %}" class="header__sign-in">
+									<i class="icon ion-ios-log-in"></i>
+									<span>Войти</span>
+									{% endif %}
+								{% if user.is_authenticated %}
+									<a href="{% url 'logout' %}" class="header__sign-in">
+									<i class="icon ion-ios-log-in"></i>
+									<span>Выйти</span>
+								{% endif %}
+								</a>
+								</a>
+							<button class="header__btn" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- header search -->
+		<form action="#" class="header__search">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header__search-content">
+							<input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+
+							<button type="button">search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- end header search -->
+	</header>
+
+
+	<div class="sign section--bg" data-bg="img/section/section.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="sign__content">
+						<!-- authorization form -->
+						<form action="" method="POST" class="sign__form" style="color: white">
+							{% csrf_token %}
+							<h2>Войти как админ</h2>
+							<button type="submit" class="sign__btn">Войти</button>
+						</form>
+						<!-- end authorization form -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

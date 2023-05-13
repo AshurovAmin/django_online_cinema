@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg_full" style="background-color: #000; position: relative">
+</div>
+<div class="card" style="flex-direction: row; display: flex; border: none; margin-bottom: 30px">
+  <img class="card-img-top" style="width: 400px; height: 400px object-fit: cover;" src="{{ movie.image.url }}" alt="Card image cap">
+  <div class="card-body" style="background-color: #342e54;">
+    <h5 class="card-title">{{ movie.name }}</h5>
+    <p class="card-text">{{ movie.description }}</p>
+    <p class="card-text">{{ movie.genre.name }}</p>
+    <p class="card-text">{{ movie.year }}</p>
+  </div>
+</div>
+
+<img src="{{ movie.images.url }}" class="card-img-top:200" alt="{{movie.name}}">
+<video width="720" height="360" controls>
+    <source src="{{ movie.video.url }}" type="video/mp4"></video>
+
+{% endblock content %}

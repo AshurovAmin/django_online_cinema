@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row" style="margin: 90px 0;     justify-content: space-between;">
+{% for movie in movies %}
+
+        <div style="margin: 10px 0; background-color:#342e54; padding-left: 0; width: 350px; border-radius: 10px;" class=" col-md-4">
+            <div class="movie-card">
+              <img src="{{ movie.image.url }}" style="width:350px; height: 210px; object-fit: cover;border-radius: 10px 10px 0 0;" class="img-test  card-img-top" alt="{{ movie.name }}">
+              <div class="card-body">
+                <h5 class="text-center card-title">{{ movie.name }}</h5>
+                <p class="text-center card-text">{{ movie.description }}</p>
+                <p class="text-center card-text">{{ movie.year }}</p>
+                <p class="text-center card-text">{{ movie.category }}</p>
+                      <a style="color: #fff !important; display:block; margin-left:10px; margin-bottom:20px" class="text-center btn-primary btn-color btn p-2 text-dark" href="{% url 'movie_detail' movie.id %}">Смотреть</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+</div>
+{% endblock content %}
+<style>
+
+    .text-center{
+     text-align: center;
+    }
+
+</style>

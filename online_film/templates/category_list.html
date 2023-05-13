@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for el in category %}
+            <div class="alert alert-warning mt-2">
+               <h3>{{ el.name }}</h3>
+                <p>{{ el.description }}</p>
+            </div>
+    {% endfor %}
+{% endblock %}
